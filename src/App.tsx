@@ -14,6 +14,7 @@ import EventDetails from "./pages/EventDetails";
 import PracticeArena from "./pages/PracticeArena";
 import About from "./pages/About";
 import Formats from "./pages/Formats";
+import Leaderboard from "./pages/Leaderboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/practice" element={<PracticeArena />} />
           <Route path="/about" element={<About />} />
           <Route path="/formats" element={<Formats />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

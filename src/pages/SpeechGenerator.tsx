@@ -35,7 +35,7 @@ const SpeechGeneratorPage = () => {
   
   // If we have parameters from the URL, automatically generate a speech
   // Define auto-generation effect after the handleGenerateSpeech function is defined
-  const [shouldAutoGenerate, setShouldAutoGenerate] = useState(motionFromUrl && formatFromUrl && roleFromUrl);
+  const [shouldAutoGenerate, setShouldAutoGenerate] = useState<boolean>(Boolean(motionFromUrl && formatFromUrl && roleFromUrl));
 
   const [speechLength, setSpeechLength] = useState('7');
   const [keyPoints, setKeyPoints] = useState('');

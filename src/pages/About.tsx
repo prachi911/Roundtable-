@@ -9,28 +9,22 @@ import { Separator } from '@/components/ui/separator';
 const About = () => {
   const teamMembers = [
     {
-      name: 'Prachi Bhatarkar',
-      role: 'Founder & Lead Developer',
-      bio: 'Passionate about debate and technology, Prachi created Roundtable to make debate resources accessible to everyone.',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg'
+      name: 'Prachi B',
+      role: 'AIML Student, RCOEM',
+      bio: 'Passionate about debate and technology, Prachi created Debate King to make debate resources accessible to everyone.',
+      image: 'https://i.imgur.com/8zXRwCj.jpg' // Spirited Away - Chihiro
     },
     {
-      name: 'Aditya Sharma',
-      role: 'Debate Coach & Content Strategist',
-      bio: 'Former national debate champion with 10+ years of coaching experience, guiding the platform\'s educational content.',
-      image: 'https://randomuser.me/api/portraits/men/32.jpg'
+      name: 'Aditya Singh',
+      role: 'AIML Student, RCOEM',
+      bio: 'Experienced debater with a passion for teaching and guiding the platform\'s educational content development.',
+      image: 'https://i.imgur.com/cWPz7oj.jpg' // Howl's Moving Castle - Howl
     },
     {
-      name: 'Neha Patel',
-      role: 'UX Designer',
-      bio: 'Specializes in creating intuitive user experiences that make complex debate concepts accessible to all skill levels.',
-      image: 'https://randomuser.me/api/portraits/women/68.jpg'
-    },
-    {
-      name: 'Rahul Mehta',
-      role: 'AI Research Lead',
-      bio: 'PhD in computational linguistics, leading the development of Roundtable\'s AI-powered debate assistance features.',
-      image: 'https://randomuser.me/api/portraits/men/76.jpg'
+      name: 'Atharava Rakhshak',
+      role: 'AIML Student, RCOEM',
+      bio: 'Specializes in AI implementation and technical development, ensuring Debate King\'s features are cutting-edge and reliable.',
+      image: 'https://i.imgur.com/QLrDYNb.jpg' // Princess Mononoke - Ashitaka
     }
   ];
 
@@ -44,7 +38,7 @@ const About = () => {
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-playfair leading-tight">
-                About <span className="text-gold">Roundtable</span>
+                About <span className="text-gold">Debate King</span>
               </h1>
               <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
                 Empowering debaters with AI-powered tools and resources to elevate their skills and arguments.
@@ -61,7 +55,7 @@ const About = () => {
                 <h2 className="text-3xl font-bold mb-4 text-navy font-playfair">Our Mission</h2>
                 <Separator className="mx-auto w-24 bg-gold h-1 mb-6" />
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  At Roundtable, we believe that the art of debate is fundamental to a healthy democracy and critical thinking. 
+                  At Debate King, we believe that the art of debate is fundamental to a healthy democracy and critical thinking. 
                   Our mission is to democratize access to high-quality debate resources, making them available to everyone 
                   regardless of background or experience level.
                 </p>
@@ -129,7 +123,7 @@ const About = () => {
                 
                 <div>
                   <p className="text-gray-700 mb-4 leading-relaxed">
-                    Roundtable was born out of a passion for debate and a recognition of the challenges faced by debaters worldwide. 
+                    Debate King was born out of a passion for debate and a recognition of the challenges faced by debaters worldwide. 
                     Our founder, a former debate champion, experienced firsthand the disparities in access to quality coaching and resources.
                   </p>
                   <p className="text-gray-700 mb-4 leading-relaxed">
@@ -137,7 +131,7 @@ const About = () => {
                     personalized debate assistance, making high-quality coaching accessible to everyone.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    Today, Roundtable serves thousands of debaters across the globe, from high school students participating in their 
+                    Today, Debate King serves thousands of debaters across the globe, from high school students participating in their 
                     first tournament to seasoned professionals honing their skills. Our community continues to grow as we expand our 
                     features and resources.
                   </p>
@@ -190,7 +184,7 @@ const About = () => {
                 <h2 className="text-3xl font-bold mb-4 font-playfair">Our Values</h2>
                 <Separator className="mx-auto w-24 bg-gold h-1 mb-6" />
                 <p className="text-lg opacity-90 max-w-3xl mx-auto">
-                  These core principles guide everything we do at Roundtable, from feature development to community engagement.
+                  These core principles guide everything we do at Debate King, from feature development to community engagement.
                 </p>
               </div>
               
@@ -265,7 +259,7 @@ const About = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4 text-navy font-playfair">Join Our Community</h2>
               <p className="text-lg text-gray-700 mb-8">
-                Become part of the Roundtable community today and take your debate skills to the next level with our comprehensive platform.
+                Become part of the Debate King community today and take your debate skills to the next level with our comprehensive platform.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button size="lg" className="bg-navy text-white hover:bg-navy-dark">
