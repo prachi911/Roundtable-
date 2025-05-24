@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -24,12 +24,19 @@ const SpeechGeneratorPage = () => {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const motionFromUrl = searchParams.get('motion');
+  const formatFromUrl = searchParams.get('format') as DebateFormat;
+  const roleFromUrl = searchParams.get('role') as DebateRole;
   
   const [currentRole, setCurrentRole] = useState<UserRole | null>('participant');
   const [motion, setMotion] = useState(motionFromUrl || '');
-  const [selectedFormat, setSelectedFormat] = useState<DebateFormat>('british');
-  const [selectedRole, setSelectedRole] = useState<DebateRole>('prime_minister');
+  const [selectedFormat, setSelectedFormat] = useState<DebateFormat>(formatFromUrl || 'british');
+  const [selectedRole, setSelectedRole] = useState<DebateRole>(roleFromUrl || 'prime_minister');
   const [selectedGoal, setSelectedGoal] = useState<SpeechGoal>('opening');
+  
+  // If we have parameters from the URL, automatically generate a speech
+  // Define auto-generation effect after the handleGenerateSpeech function is defined
+  const [shouldAutoGenerate, setShouldAutoGenerate] = useState(motionFromUrl && formatFromUrl && roleFromUrl);
+
   const [speechLength, setSpeechLength] = useState('7');
   const [keyPoints, setKeyPoints] = useState('');
   const [speech, setSpeech] = useState<Speech | null>(null);
@@ -105,6 +112,19 @@ const SpeechGeneratorPage = () => {
       });
     }, 2000);
   };
+
+  // Auto-generate speech if we have URL parameters
+  useEffect(() => {
+    if (shouldAutoGenerate) {
+      // Use a small timeout to ensure the component is fully mounted
+      const timer = setTimeout(() => {
+        handleGenerateSpeech();
+        setShouldAutoGenerate(false); // Prevent multiple generations
+      }, 800);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [shouldAutoGenerate]);
 
   const handleCopyToClipboard = async (text: string, section: string) => {
     try {

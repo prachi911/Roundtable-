@@ -1,5 +1,6 @@
-
 import { DebateFormat, DebateFormatInfo } from '@/types';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
@@ -205,10 +206,12 @@ const FormatSelector = ({ selectedFormat, onSelectFormat, showAllFormats = false
         <div className="text-center mt-8">
           <Button 
             variant="outline" 
-            className="border-navy text-navy hover:bg-navy hover:text-white"
-            onClick={() => window.location.href = '/formats'}
+            className="border-navy text-navy hover:bg-navy hover:text-white bg-white transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md"
+            asChild
           >
-            View All Debate Formats
+            <Link to="/formats">
+              View All Debate Formats
+            </Link>
           </Button>
         </div>
       )}

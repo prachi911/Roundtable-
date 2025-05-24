@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -39,7 +39,9 @@ const MotionAnalysisPage = () => {
   const [selectedGoal, setSelectedGoal] = useState<SpeechGoal>('opening');
   const [analysis, setAnalysis] = useState<MotionAnalysis | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isGeneratingSpeech, setIsGeneratingSpeech] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleAnalyzeMotion = () => {
     if (!motion.trim()) {
@@ -62,6 +64,32 @@ const MotionAnalysisPage = () => {
         title: "Analysis Complete",
         description: "Your motion has been analyzed successfully.",
       });
+    }, 1500);
+  };
+
+  const handleGenerateFullSpeech = () => {
+    if (!analysis) {
+      toast({
+        title: "Analysis Required",
+        description: "Please analyze a motion first before generating a speech.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsGeneratingSpeech(true);
+    
+    // Simulate API call with timeout
+    setTimeout(() => {
+      setIsGeneratingSpeech(false);
+      
+      toast({
+        title: "Speech Generated",
+        description: "Your full speech has been generated successfully.",
+      });
+      
+      // Navigate to the speech generator page with the motion and analysis data
+      navigate(`/speech-generator?motion=${encodeURIComponent(motion)}&format=${selectedFormat}&role=${selectedRole}`);
     }, 1500);
   };
 
@@ -360,9 +388,22 @@ const MotionAnalysisPage = () => {
                 </Card>
                 
                 <div className="flex justify-center">
-                  <Button className="bg-navy hover:bg-navy-dark">
-                    <span>Generate Full Speech</span>
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button 
+                    className="bg-navy hover:bg-navy-dark" 
+                    onClick={handleGenerateFullSpeech}
+                    disabled={isGeneratingSpeech || !analysis}
+                  >
+                    {isGeneratingSpeech ? (
+                      <>
+                        <span>Generating...</span>
+                        <div className="ml-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                      </>
+                    ) : (
+                      <>
+                        <span>Generate Full Speech</span>
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
                   </Button>
                 </div>
               </div>

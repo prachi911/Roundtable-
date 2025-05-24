@@ -152,10 +152,11 @@ const Index = () => {
                 <RoleSelector selectedRole={currentRole} onSelectRole={handleRoleSelect} />
               </div>
             ) : (
-              <div className="max-w-3xl mx-auto mb-16">
-                <h3 className="text-xl font-semibold mb-4 text-navy font-playfair text-center">
-                  Select a debate format:
+              <div className="max-w-4xl mx-auto mb-16 px-4 py-8 bg-gradient-to-b from-slate-50 to-white rounded-xl shadow-sm border border-gray-100">
+                <h3 className="text-2xl font-bold mb-6 text-navy font-playfair text-center relative">
+                  <span className="relative inline-block after:content-[''] after:absolute after:w-1/2 after:h-1 after:bg-gold after:bottom-0 after:left-1/4 after:rounded-full pb-2">Select a Debate Format</span>
                 </h3>
+                <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Choose from our curated selection of debate formats to structure your arguments and enhance your debating skills.</p>
                 <FormatSelector selectedFormat={selectedFormat} onSelectFormat={setSelectedFormat} />
               </div>
             )}

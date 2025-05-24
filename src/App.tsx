@@ -12,6 +12,8 @@ import JudgeFeedback from "./pages/JudgeFeedback";
 import Events from "./pages/Events";
 import EventDetails from "./pages/EventDetails";
 import PracticeArena from "./pages/PracticeArena";
+import About from "./pages/About";
+import Formats from "./pages/Formats";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/events/:eventId" element={<EventDetails />} />
           <Route path="/practice" element={<PracticeArena />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/formats" element={<Formats />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
